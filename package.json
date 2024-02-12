@@ -2,6 +2,12 @@
   "name": "wamper",
   "module": "index.ts",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pa-khan/wamper"
+  },
+  "author": "Pa Khan",
+  "license": "MIT",
   "devDependencies": {
     "@types/bun": "latest"
   },
