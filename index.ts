@@ -154,7 +154,7 @@ export default class Wamper {
   }
   
   _subscribeResult(data: SubscribeResultMessage) {
-    const [, uri, ...values] = data
+    const [, uri] = data
     
     if (!this._invoices.has(uri) && this._options.debug) {
       this._debug('A subscription with such parameters already not exists', 'warn')
@@ -220,7 +220,7 @@ export default class Wamper {
 }
 
 class Invoices<T = InvoicePromise> extends Map<string, T> {
-  create(key: string, value?: DataValue): Promise<T> {
+  create(key: string): Promise<T> {
     return new Promise<T>((resolve, reject) => {
       const promise: T = {resolve, reject} as T
       
@@ -228,17 +228,3 @@ class Invoices<T = InvoicePromise> extends Map<string, T> {
     })
   }
 }
-//
-//
-//const wamper = new Wamper('test.enter-systems.ru', {
-//  security: false
-//})
-//
-//wamper.connection.then(async () => {
-//    const data = await wamper.call('http://enter.local/login', 'enter', 'A505a')
-//
-//    wamper.subscribe('http://enter.local/subscription/logs/list')
-//      .then((res) => {
-//        console.log(res)
-//      })
-//  })
