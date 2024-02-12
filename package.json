@@ -1,14 +1,19 @@
 {
   "name": "wamper",
-  "version": "0.0.1",
-  "module": "index.ts",
-  "type": "module",
+  "version": "0.0.7",
+  "main": "./index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/pa-khan/wamper"
   },
   "author": "Pa Khan",
   "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./types.d.ts",
+      "import": "./index.js"
+    }
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
